@@ -1,0 +1,55 @@
+set nocompatible              " required
+filetype off                  " required
+set number
+
+
+
+set autowrite 
+syntax enable
+set background=light
+
+
+if has('gui_running')
+  set guifont=Lucida_Console:h11
+endif
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-syntastic/syntastic'
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+autocmd FileType cpp nmap <buffer> <F5> :w<bar>!g++ -o %:r % && %:r<CR>
+autocmd filetype cpp nnoremap <F10> :!%:r<CR>
+
+set backspace=indent,eol,start
+"syntastic settings 
+
+
+
+
+
+"split navigations
+let g:ycm_autoclose_preview_window_after_completion=1
+
+
+colorscheme solarized
+
+
